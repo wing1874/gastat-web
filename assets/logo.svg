@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="180" fill="#ff860a"/>
+  
+  <!-- Bar chart bars -->
+  <rect x="280" y="520" width="100" height="160" rx="20" fill="white"/>
+  <rect x="420" y="380" width="100" height="300" rx="20" fill="white"/>
+  <rect x="560" y="240" width="100" height="440" rx="20" fill="white"/>
+  
+  <!-- Base line -->
+  <rect x="260" y="700" width="420" height="12" rx="6" fill="white"/>
+</svg>
+

@@ -1,0 +1,9 @@
+.nyc_output/
+.idea/
+.DS_Store
+/dist/
+node_modules/
+
+/test/coverage/
+/.playwright-mcp/
+.playwright-mcp/
