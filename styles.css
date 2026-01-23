@@ -92,6 +92,27 @@ a {
 .nav-links a:hover {
     color: var(--primary);
 }
+.nav-download {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.nav-download-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 134, 10, 0.3);
+}
+
+.nav-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 134, 10, 0.4);
+    color: var(--text-primary);
+}
 
 /* Hero Section */
 .hero {
@@ -142,6 +163,33 @@ a {
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.7;
+}
+
+.hero-download {
+    margin-bottom: 2rem;
+}
+
+.hero-download-text {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.app-store-badge {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.app-store-badge:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.app-store-badge img {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 .hero-security {
@@ -491,6 +539,11 @@ section {
         justify-content: center;
     }
 
+    .hero-download {
+        display: flex;
+        justify-content: center;
+    }
+
     .hero-visual {
         margin-top: 3rem;
     }
@@ -514,6 +567,11 @@ section {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+    }
+
+    .nav-download-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
     }
 
     .hero-title {
@@ -582,6 +640,11 @@ section {
 
 .hero-description {
     animation-delay: 0.2s;
+}
+
+.hero-download {
+    animation: fadeInUp 0.8s ease 0.25s forwards;
+    opacity: 0;
 }
 
 .hero-security {
