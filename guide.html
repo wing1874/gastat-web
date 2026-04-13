@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Guide - GAStat</title>
+    <meta name="description" content="Learn how to add and use GAStat widgets on your Home Screen and Lock Screen.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .guide-hero {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guide-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .guide-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .guide-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .guide-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .guide-section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .guide-section-num {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .guide-section-title h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .guide-section-body {
+            padding-left: 52px;
+        }
+
+        .guide-section-body p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-section-body ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .guide-section-body ul li {
+            display: flex;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .guide-section-body ul li::before {
+            content: "•";
+            color: var(--primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 0.05rem;
+        }
+
+        .guide-section-body ul li strong {
+            color: var(--text-primary);
+        }
+
+        .guide-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 3.5rem 0;
+        }
+
+        .widget-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .widget-card {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: border-color 0.2s ease;
+        }
+
+        .widget-card:hover {
+            border-color: rgba(255, 134, 10, 0.3);
+        }
+
+        .widget-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .widget-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .widget-card .widget-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 134, 10, 0.15);
+            border: 1px solid rgba(255, 134, 10, 0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .guide-note {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 134, 10, 0.08);
+            border: 1px solid rgba(255, 134, 10, 0.2);
+            border-radius: 12px;
+            margin-top: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .guide-note-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .faq-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .guide-section-body {
+                padding-left: 0;
+                margin-top: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="GAStat Logo" class="logo-img">
+                <span class="logo-text">GAStat - Analytics Widgets</span>
+            </div>
+            <div class="nav-download">
+                <div class="nav-links">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="guide.html" style="color: var(--primary);">Guide</a>
+                </div>
+                <a href="https://apps.apple.com/us/app/gastat-analytics-widgets/id6756602615"
+                   class="nav-download-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="guide-hero">
+        <div class="hero-badge">Widget Guide</div>
+        <h1>How to Add and Use<br><span class="highlight">GAStat Widgets</span></h1>
+        <p>Set up Home Screen and Lock Screen widgets to keep your GA4 data one glance away.</p>
+    </div>
+
+    <!-- Guide Content -->
+    <div class="guide-content">
+
+        <!-- Section 1 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">1</div>
+                <h2>Enter Home Screen Edit Mode</h2>
+            </div>
+            <div class="guide-section-body">
+                <ul>
+                    <li>On your iPhone, <strong>long-press on an empty area</strong> of the Home Screen until the icons start to jiggle.</li>
+                    <li>Tap the <strong>"+"</strong> button in the top-left or top-right corner to open the widget gallery.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 2 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">2</div>
+                <h2>Find GAStat in the Widget Gallery</h2>
+            </div>
+            <div class="guide-section-body">
+                <ul>
+                    <li>In the search bar at the top, type <strong>"GAStat"</strong> to find the app's widgets.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 3 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">3</div>
+                <h2>Choose a Widget</h2>
+            </div>
+            <div class="guide-section-body">
+                <p>GAStat offers several widget types for your Home Screen:</p>
+                <div class="widget-cards">
+                    <div class="widget-card">
+                        <div class="widget-badge">Home Screen</div>
+                        <h3>Real-Time Users — Small &amp; Medium</h3>
+                        <p>Live active user count with a sparkline chart. You can add multiple widgets, each showing a different GA property.</p>
+                    </div>
+                    <div class="widget-card">
+                        <div class="widget-badge">Home Screen</div>
+                        <h3>Multi-Property — Large</h3>
+                        <p>Compare up to 6 properties side by side on a single large widget.</p>
+                    </div>
+                    <div class="widget-card">
+                        <div class="widget-badge">Home Screen</div>
+                        <h3>Events</h3>
+                        <p>Monitor real-time event counts for your most important actions.</p>
+                    </div>
+                    <div class="widget-card">
+                        <div class="widget-badge">Home Screen</div>
+                        <h3>Yesterday</h3>
+                        <p>Yesterday's active user totals at a glance, every morning.</p>
+                    </div>
+                </div>
+                <div class="guide-note">
+                    <span class="guide-note-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </span>
+                    All Home Screen widgets require a Pro subscription.
+                </div>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 4 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">4</div>
+                <h2>Add the Widget to Your Home Screen</h2>
+            </div>
+            <div class="guide-section-body">
+                <ul>
+                    <li>Select your preferred widget size and tap <strong>"Add Widget"</strong>.</li>
+                    <li>Drag it to your desired position.</li>
+                    <li>Tap <strong>"Done"</strong> to exit edit mode.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 5 (Lock Screen) -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">5</div>
+                <h2>Add a Widget to Your Lock Screen</h2>
+            </div>
+            <div class="guide-section-body">
+                <p>GAStat supports two Lock Screen widget sizes — check your real-time user count without even unlocking your phone.</p>
+                <div class="widget-cards" style="margin-bottom: 1.25rem;">
+                    <div class="widget-card">
+                        <div class="widget-badge">Lock Screen</div>
+                        <h3>Circular</h3>
+                        <p>Real-time active user count displayed as a compact circular widget below the clock.</p>
+                    </div>
+                    <div class="widget-card">
+                        <div class="widget-badge">Lock Screen</div>
+                        <h3>Rectangular</h3>
+                        <p>Property name and real-time user count in a wider format, ideal for a quick read.</p>
+                    </div>
+                </div>
+                <p><strong>How to add:</strong></p>
+                <ul>
+                    <li><strong>Wake your iPhone</strong> and long-press on the lock screen until the <strong>"Customize"</strong> button appears at the bottom.</li>
+                    <li>Tap <strong>"Customize"</strong>, then select <strong>"Lock Screen"</strong>.</li>
+                    <li>Tap the <strong>widget area below the clock</strong> to open the widget picker.</li>
+                    <li>Search for <strong>"GAStat"</strong> and choose Circular or Rectangular.</li>
+                    <li>Tap <strong>"Done"</strong> to save.</li>
+                </ul>
+                <div class="guide-note">
+                    <span class="guide-note-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </span>
+                    Lock Screen Widgets require iOS 16 or later and an active Pro subscription.
+                </div>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 6 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">6</div>
+                <h2>Select a GA Property for Your Widget</h2>
+            </div>
+            <div class="guide-section-body">
+                <ul>
+                    <li>Long-press a GAStat widget and tap <strong>"Edit Widget"</strong>.</li>
+                    <li>Select the <strong>GA property</strong> you want to display.</li>
+                    <li>You can add multiple widgets, each configured to a different property.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 7 -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">7</div>
+                <h2>Using the Widgets</h2>
+            </div>
+            <div class="guide-section-body">
+                <ul>
+                    <li>Widgets update periodically to show your latest analytics data.</li>
+                    <li>Tap any widget to open GAStat and view detailed reports.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="guide-divider">
+
+        <!-- Section 8 — FAQs -->
+        <div class="guide-section">
+            <div class="guide-section-title">
+                <div class="guide-section-num">8</div>
+                <h2>Troubleshooting &amp; FAQs</h2>
+            </div>
+            <div class="guide-section-body">
+                <div class="faq-item">
+                    <h3>Can't find GAStat widgets?</h3>
+                    <p>Make sure GAStat is installed and updated. Your device must run iOS 17.6 or later.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Widget data not updating?</h3>
+                    <p>Open GAStat to refresh your session and check your login status. If the issue persists, try removing and re-adding the widget, or restart your device.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Lock Screen Widget showing a lock icon?</h3>
+                    <p>Lock Screen Widgets are available to Pro subscribers only. Upgrade inside the GAStat app to unlock them.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I remove a widget?</h3>
+                    <p>Long-press the widget and select <strong>"Remove Widget"</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/logo.svg" alt="GAStat Logo" class="footer-logo">
+                <span>GAStat</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a href="termsOfUse.html">Terms of Use</a>
+                <a href="mailto:zhen0711789@gmail.com">Contact Us</a>
+            </div>
+            <p class="footer-copyright">© 2025 GAStat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
