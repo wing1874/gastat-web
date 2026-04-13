@@ -569,9 +569,19 @@ section {
         display: none;
     }
 
+    .logo-text {
+        font-size: 0.95rem;
+    }
+
     .nav-download-btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        display: none;
     }
 
     .hero-title {
