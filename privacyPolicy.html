@@ -233,7 +233,7 @@
 
   <main class="content">
     <h1 class="page-title">Privacy Policy</h1>
-    <p class="effective-date">Effective Date: 2025-12-29</p>
+    <p class="effective-date">Effective Date: 2026-07-29</p>
 
     <p class="intro">
       Thank you for using <strong>GAStat</strong> ("the App"). Your privacy is important to us.
@@ -249,16 +249,24 @@
         <li>Access to your Google Analytics properties and data, as explicitly authorized by you</li>
       </ul>
 
-      <h3>b. Usage Data</h3>
+      <h3>b. AI Analyst Data</h3>
+      <ul>
+        <li>Questions you submit to the AI Analyst feature</li>
+        <li>The Google Analytics property ID you select for analysis</li>
+        <li>A short-lived Google access token used to query your analytics data on your behalf</li>
+      </ul>
+
+      <h3>c. Usage Data</h3>
       <ul>
         <li>Device information (e.g., model, operating system version)</li>
         <li>In-app behavior (such as screen views and feature usage)</li>
         <li>Crash reports and performance logs</li>
       </ul>
 
-      <h3>c. Subscription Information</h3>
+      <h3>d. Subscription and Purchase Information</h3>
       <ul>
         <li>Subscription status and selected plan (monthly or yearly), processed securely through Apple In-App Purchase</li>
+        <li>AI credit pack purchase records, processed through Apple In-App Purchase</li>
       </ul>
     </section>
 
@@ -269,6 +277,7 @@
         <li>To authenticate users via Google Sign-In and identify their Google account.</li>
         <li>To access, display, and analyze Google Analytics data selected by the user, solely to provide the core functionality of the App.</li>
         <li>To enable Pro features related to analytics data visualization and insights.</li>
+        <li>To power the AI Analyst feature: your question and selected property data are sent to our server, which queries the Google Analytics API on your behalf and uses Google Gemini to generate an analytical response.</li>
         <li>To improve app features, performance, and user experience based on aggregated and anonymized usage insights.</li>
       </ul>
       <p>Google user data is not used for advertising purposes and is not combined with data from other services for marketing, profiling, or tracking.</p>
@@ -277,9 +286,8 @@
     <section>
       <h2>3. Data Sharing and Disclosure</h2>
       <ul>
-        <li>We do not share, transfer, or disclose Google user data to any third parties.</li>
-        <li>All Google Analytics data accessed by the App is processed locally on the user's device and is not stored on external servers controlled by the developer.</li>
-        <li>The App does not sell, rent, or use Google user data for advertising, marketing, or profiling purposes.</li>
+        <li>We do not sell, rent, or use Google user data for advertising, marketing, or profiling purposes.</li>
+        <li>When you use the AI Analyst feature, your question and the relevant analytics data are processed by our server and by Google Gemini. These are used solely to generate your analytical response and are not shared with other third parties.</li>
         <li>Google user data may only be disclosed if required to comply with applicable laws, regulations, or legally enforceable governmental requests.</li>
       </ul>
     </section>
@@ -287,8 +295,9 @@
     <section>
       <h2>4. Data Storage and Protection</h2>
       <ul>
-        <li>The App does not permanently store Google Analytics data or Google account credentials on external servers.</li>
-        <li>Authorization tokens are stored locally on the device using Apple's secure storage mechanisms.</li>
+        <li>Authorization tokens are stored locally on the device using Apple's secure storage mechanisms. They are not permanently stored on our servers.</li>
+        <li>AI Analyst conversation history is stored locally on your device and automatically cleared after 30 days.</li>
+        <li>Google access tokens sent to the AI Analyst server are used only for the duration of the request and are not persisted.</li>
         <li>All data transmissions are encrypted using HTTPS.</li>
       </ul>
     </section>
@@ -297,8 +306,10 @@
       <h2>5. Third-Party Services</h2>
       <p>The App integrates with the following third-party services:</p>
       <ul>
-        <li>Google Sign-In and Google Analytics APIs</li>
-        <li>Apple In-App Purchase</li>
+        <li>Google Sign-In and Google Analytics APIs — for authentication and data access</li>
+        <li>Google Gemini (via Vertex AI) — for AI-powered analytics insights</li>
+        <li>Apple In-App Purchase — for subscriptions and credit packs</li>
+        <li>Firebase Analytics — for anonymized app usage analytics</li>
       </ul>
       <p>These services are used only as required to provide the App's core functionality.</p>
     </section>
@@ -339,7 +350,7 @@
 
 
   <footer class="footer">
-    <p>© 2025 GAStat. All rights reserved.</p>
+    <p>© 2026 GAStat. All rights reserved.</p>
   </footer>
 </body>
 
